@@ -1,3 +1,3 @@
 # Django project 
 
-Learning Django framework
+MYSQL CRUD using Django framework
