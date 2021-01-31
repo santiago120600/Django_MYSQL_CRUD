@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'applications.main',
     'widget_tweaks',
     'applications.crudapp',
 ]
@@ -54,10 +53,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
+# BASE_DIR + '/templates'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('applications/templates'))],
+        'DIRS': ['C:/Users/santy/PycharmProjects/mysite/applications/crudapp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

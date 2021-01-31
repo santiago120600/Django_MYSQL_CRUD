@@ -11,4 +11,5 @@ class Contact(models.Model):
     createdAt = models.DateTimeField("Created At", auto_now_add=True)
 
     def __str__(self):
-        return self.firstName
+        txt = "{0} {1}"
+        return txt.format(self.firstName,self.lastName)

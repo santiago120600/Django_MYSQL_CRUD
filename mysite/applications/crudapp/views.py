@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView
 
 # Create your views here.
 class IndexView(ListView):
-    template_name = 'crudapp/index.html'
+    template_name = 'index.html'
     context_object_name = 'contact_list'
 
     def get_queryset(self):
@@ -14,7 +14,7 @@ class IndexView(ListView):
 
 class ContactDetailView(DetailView):
     model = Contact
-    template_name = 'crudapp/contact-detail.html'
+    template_name = 'contact-detail.html'
 
 def create(request):
     if request.method == 'POST':
@@ -24,9 +24,9 @@ def create(request):
             return redirect('index')
     form = ContactForm()
 
-    return render(request,'crudapp/create.html',{'form': form})
+    return render(request,'create.html',{'form': form})
 
-def edit(request, pk, template_name='crudapp/edit.html'):
+def edit(request, pk, template_name='edit.html'):
     contact = get_object_or_404(Contact, pk=pk)
     form = ContactForm(request.POST or None, instance=post)
     if form.is_valid():
@@ -34,7 +34,7 @@ def edit(request, pk, template_name='crudapp/edit.html'):
         return redirect('index')
     return render(request, template_name, {'form':form})
 
-def delete(request, pk, template_name='crudapp/confirm_delete.html'):
+def delete(request, pk, template_name='confirm_delete.html'):
     contact = get_object_or_404(Contact, pk=pk)
     if request.method=='POST':
         contact.delete()
