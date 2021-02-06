@@ -40,3 +40,8 @@ def delete(request, pk, template_name='confirm_delete.html'):
         contact.delete()
         return redirect('index')
     return render(request, template_name, {'object':contact})
+
+
+def home(request):
+    template_name='home.html'
+    return render(request, template_name)
